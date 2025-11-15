@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DevSecOps CI/CD Pipeline Demo Application">
+    <meta name="author" content="DevOps Team">
+    <title>DevSecOps Pipeline - Web App</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo">
+                <h1>🚀 DevSecOps Pipeline</h1>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#pipeline" class="nav-link">Pipeline</a>
+                <a href="#about" class="nav-link">About</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2 class="hero-title">Welcome to DevSecOps CI/CD Pipeline</h2>
+                <p class="hero-subtitle">Automated, Secure, and Scalable Deployments</p>
+                <div class="environment-badge">
+                    <span id="env-name">Environment: Loading...</span>
+                </div>
+                <div class="version-info">
+                    <span id="app-version">Version: 1.0.0</span>
+                    <span id="build-number">Build: Loading...</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <h2 class="section-title">Pipeline Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Continuous Integration</h3>
+                    <p>Automated builds, tests, and security scans on every commit</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Security First</h3>
+                    <p>SAST, DAST, container scanning, and vulnerability detection</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>GitOps Deployment</h3>
+                    <p>ArgoCD-powered declarative deployments to Kubernetes</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Multi-Environment</h3>
+                    <p>Dev, Stage, and Production environments with approval gates</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Monitoring</h3>
+                    <p>Real-time metrics, logs, and health checks</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Rollback</h3>
+                    <p>Instant rollback capability for zero-downtime deployments</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pipeline Flow Section -->
+        <section id="pipeline" class="pipeline">
+            <h2 class="section-title">CI/CD Pipeline Flow</h2>
+            <div class="pipeline-steps">
+                <div class="pipeline-step">
+                    <div class="step-number">1</div>
+                    <h4>Code Push</h4>
+                    <p>Developer pushes code to GitHub</p>
+                </div>
+                <div class="pipeline-arrow">→</div>
+                <div class="pipeline-step">
+                    <div class="step-number">2</div>
+                    <h4>CI Pipeline</h4>
+                    <p>Build, Test, Security Scan</p>
+                </div>
+                <div class="pipeline-arrow">→</div>
+                <div class="pipeline-step">
+                    <div class="step-number">3</div>
+                    <h4>Container Registry</h4>
+                    <p>Push Docker image</p>
+                </div>
+                <div class="pipeline-arrow">→</div>
+                <div class="pipeline-step">
+                    <div class="step-number">4</div>
+                    <h4>ArgoCD Sync</h4>
+                    <p>GitOps deployment</p>
+                </div>
+                <div class="pipeline-arrow">→</div>
+                <div class="pipeline-step">
+                    <div class="step-number">5</div>
+                    <h4>Kubernetes</h4>
+                    <p>Deploy to cluster</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Environment Info Section -->
+        <section id="about" class="info">
+            <h2 class="section-title">Deployment Information</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>Container Platform:</strong>
+                    <span>Kubernetes (AWS EKS)</span>
+                </div>
+                <div class="info-item">
+                    <strong>GitOps Tool:</strong>
+                    <span>ArgoCD</span>
+                </div>
+                <div class="info-item">
+                    <strong>CI/CD:</strong>
+                    <span>GitHub Actions</span>
+                </div>
+                <div class="info-item">
+                    <strong>Container Registry:</strong>
+                    <span>Docker Hub</span>
+                </div>
+                <div class="info-item">
+                    <strong>Deployment Time:</strong>
+                    <span id="deploy-time">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <strong>Health Status:</strong>
+                    <span class="status-healthy" id="health-status">● Healthy</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 DevSecOps Pipeline Project | Built with ❤️ by DevOps Team</p>
+            <p class="footer-tech">Powered by Kubernetes • ArgoCD • GitHub Actions • Docker</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
