@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: my-app-container
-          image: nginx:latest
+          image: praveen1351/static-web-page:5ef6bb7eb0f1516ff0a5650391a3b7652784d9ad
           ports:
             - containerPort: 80
 
