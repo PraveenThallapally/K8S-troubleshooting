@@ -16,7 +16,7 @@ jobs:
       
       - name: Update stage deployment manifest
         run: |
-          sed -i "s|image:.*|image: ${{ secrets.DOCKER_USERNAME }}/static-web-page:${{ github.event.client_payload.image_tag }}|g" k8s/stage/deployment.yaml
+          sed -i "s|image:.*|image: ${{ secrets.DOCKER_USERNAME }}/static-web-page:${{ github.event.client_payload.image_tag }}|g" k8s/stage/deploy.yaml
       
       - name: Commit and push stage changes
         run: |
