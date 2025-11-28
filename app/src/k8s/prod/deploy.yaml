@@ -6,7 +6,7 @@ metadata:
   labels:
     app: my-app
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: my-app
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: my-app-container
-          image: praveen1351/static-web-page:b3f4e2bcafa8dfe276db09d9b3dd4c4f217c99ad
+          image: praveen1351/static-web-page:571ff7180020661fdbce41248afa6db9222614ec
           ports:
             - containerPort: 80
 
