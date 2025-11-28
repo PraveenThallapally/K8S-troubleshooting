@@ -1,0 +1,27 @@
+name: CD - Deploy to Stage
+ 
+on:
+  repository_dispatch:
+    types: [deploy-stage]
+ 
+jobs:
+  deploy-stage:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.TOKEN }}
+      
+      - name: Update stage deployment manifest
+        run: |
+          sed -i "s|image:.*|image: ${{ secrets.DOCKER_USERNAME }}/static-web-page:${{ github.event.client_payload.image_tag }}|g" k8s/stage/deployment.yaml
+      
+      - name: Commit and push stage changes
+        run: |
+          git config --global user.email "thallapellypraveen55@gmail.com"
+          git config --global user.name "Praveen Thallapally"
+          git add k8s/stage/deployment.yaml
+          git commit -m "[CI]: Deploy ${{ github.event.client_payload.image_tag }} to stage"
+          git push origin main

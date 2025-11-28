@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: Deploy to Dev
  
 on:
   push:
@@ -48,4 +48,14 @@ jobs:
           git config --global user.name "Praveen Thallapally"
           git add app/src/deploy.yaml
           git commit -m "[CI]: Update image tag to ${{ github.sha }}"
-          git push origin main          # ✅ Removed force flag
+          git push origin main
+          # ✅ Removed force flag
+          #
+
+
+      - name: Trigger stage deployment
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.TOKEN }}
+          event-type: deploy-stage
+          client-payload: '{"image_tag": "${{ github.sha }}"}'
