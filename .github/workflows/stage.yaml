@@ -22,6 +22,6 @@ jobs:
         run: |
           git config --global user.email "thallapellypraveen55@gmail.com"
           git config --global user.name "Praveen Thallapally"
-          git add k8s/stage/deployment.yaml
+          git add k8s/stage/deploy.yaml
           git commit -m "[CI]: Deploy ${{ github.event.client_payload.image_tag }} to stage"
           git push origin main
