@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: my-app-container
-          image: praveen1351/static-web-page:ff3fbd3759c733d3a21d247483384da2ef031e6b
+          image: praveen1351/static-web-page:e1b1c8fa596c36e9a40b4c0ac191d823617d72ab
           ports:
             - containerPort: 80
 
