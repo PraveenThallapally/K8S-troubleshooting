@@ -46,7 +46,7 @@ jobs:
         run: |
           git config --global user.email "thallapellypraveen55@gmail.com"
           git config --global user.name "Praveen Thallapally"
-          git add app/src/deploy.yaml
+          git add app/src/k8s/dev/deploy.yaml
           git commit -m "[CI]: Update image tag to ${{ github.sha }}"
           git push origin main
           # ✅ Removed force flag
