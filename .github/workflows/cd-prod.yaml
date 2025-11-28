@@ -21,7 +21,7 @@ jobs:
       
       - name: Update production deployment manifest
         run: |
-          sed -i "s|image:.*|image: ${{ secrets.DOCKER_USERNAME }}/static-web-page:${{ inputs.image_tag }}|g" app/src/k8s/prod/deploy.yaml
+          sed -i "s|image:.*|image: ${{ secrets.DOCKER_USERNAME }}/static-web-page:${{ github.event.client_payload.image_tag }}|g" app/src/k8s/prod/deploy.yaml
       
       - name: Commit and push production changes
         run: |
