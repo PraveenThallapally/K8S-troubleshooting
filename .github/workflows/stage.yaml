@@ -25,3 +25,7 @@ jobs:
           git add app/src/k8s/stage/deploy.yaml
           git commit -m "[CI]: Deploy ${{ github.event.client_payload.image_tag }} to stage"
           git push origin main
+
+        - name: Notify production ready
+        run: |
+          echo "Stage"

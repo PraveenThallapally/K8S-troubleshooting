@@ -1,0 +1,38 @@
+name: CD - Deploy to Production
+ 
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: 'Docker image tag to deploy (commit SHA)'
+        required: true
+        type: string
+ 
+jobs:
+  deploy-prod:
+    runs-on: ubuntu-latest
+    environment: production
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.TOKEN }}
+      
+      - name: Update production deployment manifest
+        run: |
+          sed -i "s|image:.*|image: ${{ secrets.DOCKER_USERNAME }}/static-web-page:${{ inputs.image_tag }}|g" app/src/k8s/prod/deploy.yaml
+      
+      - name: Commit and push production changes
+        run: |
+          git config --global user.email "thallapellypraveen55@gmail.com"
+          git config --global user.name "Praveen Thallapally"
+          git add app/src/k8s/prod/deploy.yaml
+          git commit -m "[CI]: Deploy ${{ inputs.image_tag }} to PRODUCTION"
+          git push origin main
+      
+      - name: Deployment summary
+        run: |
+          echo "✅ Production deployment complete!"
+          echo "Image: ${{ secrets.DOCKER_USERNAME }}/static-web-page:${{ inputs.image_tag }}"
+          echo "Deployed by: ${{ github.actor }}"
